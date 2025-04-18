@@ -1,0 +1,35 @@
+<?php
+/** @var \Strativ\ProductTags\Block\Product\Tags $block */
+$tags = $block->getProductTags();
+?>
+
+<?php if (!empty($tags)): ?>
+<div class="product-tags">
+    <strong><?= $block->escapeHtml(__('Tags:')) ?></strong>
+    <?php foreach ($tags as $tag): ?>
+        <a href="<?= $block->escapeUrl($block->getTagUrl($tag)) ?>" class="product-tag">
+            <?= $block->escapeHtml($tag) ?>
+        </a>
+    <?php endforeach; ?>
+</div>
+
+<style>
+.product-tags {
+    margin: 15px 0;
+}
+.product-tag {
+    display: inline-block;
+    background: #f0f0f0;
+    padding: 5px 10px;
+    margin: 0 5px 5px 0;
+    border-radius: 3px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.product-tag:hover {
+    background: #e0e0e0;
+    text-decoration: none;
+}
+</style>
+<?php endif; ?>

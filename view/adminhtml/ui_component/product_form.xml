@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="product-details">
+        <field name="strativ_tags" formElement="input" sortOrder="150">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Strativ Tags</label>
+                <dataScope>strativ_tags</dataScope>
+                <notice translate="true">Enter comma-separated tags for this product</notice>
+            </settings>
+        </field>
+    </fieldset>
+</form>

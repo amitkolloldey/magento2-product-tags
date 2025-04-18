@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Strativ_ProductTags::producttags" title="Product Tags" translate="title" module="Strativ_ProductTags" sortOrder="100" parent="Magento_Catalog::catalog" resource="Strativ_ProductTags::producttags"/>
+        <add id="Strativ_ProductTags::tag_management" title="Manage Tags" translate="title" module="Strativ_ProductTags" sortOrder="10" parent="Strativ_ProductTags::producttags" action="strativ_producttags/tag/index" resource="Strativ_ProductTags::tag_management"/>
+    </menu>
+</config>

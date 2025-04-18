@@ -1,0 +1,124 @@
+<?php
+/** @var \Strativ\ProductTags\Block\Tag\ProductList $block */
+$tag = $block->getCurrentTag();
+$productCollection = $block->getProductCollection();
+?>
+
+
+<div class="tag-products">
+    <?php if ($productCollection && $productCollection->count()): ?>
+        <div class="products-grid">
+            <?php foreach ($productCollection as $product):  
+                ?>
+                <div class="product-item">
+                    <div class="product-item-info">
+                        <a href="<?= $block->escapeUrl($product->getProductUrl()) ?>"
+                            class="product-item-photo">
+                            <img src="<?= $block->escapeUrl($block->getProductImageUrl($product)) ?>"
+                                alt="<?= $block->escapeHtmlAttr($product->getName()) ?>"
+                                class="product-image-photo" />
+                        </a>
+                        <div class="product-item-details">
+                            <strong class="product-item-name">
+                                <a href="<?= $block->escapeUrl($product->getProductUrl()) ?>">
+                                    <?= $block->escapeHtml($product->getName()) ?>
+                                </a>
+                            </strong>
+
+                            <div class="price-box">
+                                <span class="price">
+                                    <?= $block->escapeHtml($block->formatPrice($product->getPrice())) ?>
+                                </span>
+                            </div>
+
+                            <div class="product-item-actions">
+                                <?php if ($product->getIsSalable()): ?>
+                                    <div class="actions-primary">
+                                        <a href="<?= $block->escapeUrl($product->getProductUrl()) ?>"
+                                            class="action primary tocart">
+                                            <?= $block->escapeHtml(__('View Details')) ?>
+                                        </a>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="stock unavailable">
+                                        <span><?= $block->escapeHtml(__('Out of Stock')) ?></span>
+                                    </div>
+                                <?php endif; ?> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php else: ?>
+        <div class="message info empty">
+            <div><?= $block->escapeHtml(__('No products found with this tag.')) ?></div>
+        </div>
+    <?php endif; ?>
+</div>
+<style>
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 20px;
+        margin: 20px 0;
+    }
+
+    .product-item {
+        border: 1px solid #e8e8e8;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .product-item-name {
+        height: 40px;
+        overflow: hidden;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .product-item-photo {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .product-item-actions {
+        margin-top: 15px;
+    }
+
+    .product-item-photo {
+        display: inline-block;
+        position: relative;
+    }
+
+    .product-item {
+        padding: 20px;
+    }
+
+    .tag-products .products-grid {
+        display: block !important;
+    }
+
+    .tag-products .product-item {
+        padding: 10px !important;
+    }
+
+    .tag-products .product-item {
+        width: 46% !important;
+        text-align: left;
+        margin: 2%;
+    }
+
+    .tag-products .product-item .product-item-info {
+        width: auto !important;
+    }
+
+    .tag-products .product-item .product-item-info .product-image-photo {
+        position: relative;
+        width: 100%;
+    }
+
+    .tag-products .product-item .product-item-info .product-item-photo {
+        display: block;
+    }
+</style>

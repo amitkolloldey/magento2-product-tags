@@ -1,0 +1,21 @@
+{
+    "name": "strativ/module-product-tags",
+    "description": "Strativ Assignment - Custom Product Tags for Magento 2",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0"
+    ],
+    "require": {
+        "php": "~7.3.0||~7.4.0||~8.1.0",
+        "magento/framework": "103.0.*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Strativ\\ProductTags\\": ""
+        }
+    }
+}

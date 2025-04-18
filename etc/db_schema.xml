@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="strativ_product_tags" resource="default" engine="innodb" comment="Strativ Product Tags Table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" comment="Product ID"/>
+        <column xsi:type="varchar" name="tag" nullable="false" length="255" comment="Tag Name"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="STRATIV_PROD_TAGS_PROD_ID_CAT_PROD_ENTT_ENTT_ID" 
+                    table="strativ_product_tags" column="product_id" referenceTable="catalog_product_entity" 
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+        <index referenceId="STRATIV_PRODUCT_TAGS_PRODUCT_ID" indexType="btree">
+            <column name="product_id"/>
+        </index>
+        <index referenceId="STRATIV_PRODUCT_TAGS_TAG" indexType="btree">
+            <column name="tag"/>
+        </index>
+    </table>
+</schema>
