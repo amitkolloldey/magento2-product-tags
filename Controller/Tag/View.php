@@ -3,14 +3,14 @@ namespace Strativ\ProductTags\Controller\Tag;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\RequestInterface;
-use Magento\Framework\View\Result\PageFactory; 
+use Magento\Framework\View\Result\PageFactory;
 
 class View implements HttpGetActionInterface
-{ 
+{
     private $request;
- 
+
     private $resultPageFactory;
- 
+
     public function __construct(
         RequestInterface $request,
         PageFactory $resultPageFactory
@@ -18,12 +18,14 @@ class View implements HttpGetActionInterface
         $this->request = $request;
         $this->resultPageFactory = $resultPageFactory;
     }
- 
+
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
-        $tag = $this->request->getParam('tag'); 
- 
+        $tag = $this->request->getParam('tag');
+
+        $tag = urldecode($tag);
+
         $resultPage->getConfig()->getTitle()->set(__('Products tagged with "%1"', $tag));
 
         return $resultPage;

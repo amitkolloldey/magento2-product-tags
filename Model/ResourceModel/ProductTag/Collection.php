@@ -19,8 +19,11 @@ class Collection extends AbstractCollection
         return $this;
     }
 
+
     public function addTagFilter($tag)
     {
+        $tag = urldecode($tag);
+
         $this->addFieldToFilter('tag', $tag);
         return $this;
     }

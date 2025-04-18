@@ -42,6 +42,7 @@ class Tags extends Template
 
     public function getTagUrl($tag)
     {
-        return $this->getUrl('producttags/tag/view', ['tag' => urlencode($tag)]);
+        $encodedTag = urlencode($tag);
+        return $this->getUrl('producttags/tag/view', ['tag' => $encodedTag]);
     }
 }

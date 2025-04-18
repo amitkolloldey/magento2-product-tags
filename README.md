@@ -134,6 +134,8 @@ During the development of this module, I encountered several challenges:
 
 7. **Multiple Modules Integration**: Ensuring my module worked well with core Magento modules like Catalog required careful planning and testing.
 
+8. **Multi-word Tags URLs**: Tags containing spaces (like "test 1") weren't displaying products on their tag pages because the spaces weren't being properly URL encoded and decoded in the request handling. I fixed this by implementing proper URL encoding/decoding in the tag URL generation and the controller's request parameter handling.
+
 ## Debugging Techniques
 
 When facing issues during development, I used several debugging techniques:
@@ -145,8 +147,6 @@ When facing issues during development, I used several debugging techniques:
 3. **Custom Debugging Controllers**: Creating controllers that output debug information helped diagnose issues like incorrect image paths or database queries.
 
 4. **Database Inspection**: Directly inspecting the database structure and contents using phpMyAdmin helped verify that data was being stored correctly.
-
-
 
 ## Conclusion
 

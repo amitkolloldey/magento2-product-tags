@@ -29,7 +29,8 @@ class ProductList extends Template
     }
     public function getCurrentTag()
     {
-        return $this->request->getParam('tag');
+        $tag = $this->request->getParam('tag');
+        return urldecode($tag);
     }
 
     public function getProductCollection()
